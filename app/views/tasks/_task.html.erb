@@ -7,7 +7,8 @@
         <p> Status: <%= link_to complete_list_task_path(@list, task.id), method: :patch do %>
           <i class="fa fa-check-square"></i>
         <% end %></p>
-        <p> Due Date: <%= task.due_date.to_formatted_s(:long)   %></p> This is causing a bug 
+        <p> Due Date: <%= task.due_date.to_formatted_s(:long)   %></p>
+
       </strike> </font>
     <% else %>
       <p><strong> <%= task.title.capitalize %></strong></p>
@@ -20,8 +21,6 @@
 <br>
 <div class="btn btn-outline-primary"><i class="icon-fixed-width icon-pencil"></i><%= link_to 'Edit', edit_list_task_path(@list, task.id)%></div>
 <div class="btn btn-outline-primary"><i class="icon-fixed-width icon-trash"></i><%= link_to 'Remove', list_task_path(@list, task.id), method: :delete, data: { confirm: 'Are you sure?'} %></div>
-
-<br>
 </div>
 </div>
 <br>

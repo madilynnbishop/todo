@@ -2,9 +2,6 @@ require "spec_helper"
 describe Task do
   !let(:task) { Task.create!(title: 'title') }
 
-  it "is a new task" do
-  end
-
   it "has a title" do
     expect(task.title).to eq('title')
   end
@@ -16,22 +13,21 @@ describe Task do
     expect(task.list).to be list
   end
 
-
-  it "it saves a new task" do
-    expect(task).to exist
-  end
-
-  it "it to be not completed" do
-    expect(task.completed).to eq(false)
+  it "to be not completed" do
+    expect(task).to_not be_completed
   end
 
   it "it can be marked completed" do
     task.update_attribute(:completed, true)
-    expect(task.completed).to eq(true)
+    expect(task).to be_completed
   end
 
-  it "is a valid task" do
-    expect(task).to be_valid
+  describe "validations" do
+    it "requires a title" do
+      new_task = Task.new
+      new_task.valid?
+      expect(new_task.errors[:title]).to include("must be present")
+    end
   end
 
 end

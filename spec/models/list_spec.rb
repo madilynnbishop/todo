@@ -19,17 +19,14 @@ describe List do
     expect(list.tasks).to be_empty
   end
 
-  #write a test to test validations
-  # list.valid
-
-  it "it saves a new list" do
-    expect(list).to exist
+  describe "validations" do
+    it "requires a title" do
+      new_list = List.new
+      new_list.valid?
+      expect(new_list.errors[:title]).to include("must be present")
+    end
   end
 
-  it "is a valid list" do
-    expect(list).to be_valid
-  end
-  #write a test to make sure everything saves
 
 
 end

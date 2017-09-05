@@ -1,0 +1,30 @@
+<% if @task.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+    <ul>
+    <% @list.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="card" style="width: 20rem;">
+<div class="card-body">
+<%= form_for([@list, @task]) do |f| %>
+  <%= f.text_field :title, default: "sample title"%>
+  <br>
+  <%= f.label :content %>
+  <%= f.text_field :content%>
+  <br>
+  <%= f.label :completed %>
+  <%= f.check_box :completed %>
+  <br>
+  <%= f.label :due_date %>
+  <%= f.date_field :due_date %>
+  <br>
+<%= f.submit class: "btn btn-outline-primary" %>
+<% end %>
+</div>
+</div>

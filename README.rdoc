@@ -1,0 +1,20 @@
+== Requirements
+
+=== Todo Lists
+* A list can be created, edited and deleted
+* A list must have a title
+* A list may optionally have a description
+* When deleted, all list items must also be deleted from the database
+* Before deletion, a confirmation dialogue should appear "Are you sure?"
+* All lists and their todo items should display on a single page (use bootstrap cards)
+
+=== Todo Items
+* A list can be created, edited and deleted
+* Before deletion, a confirmation dialogue should appear "Are you sure?"
+* An item must have a title
+* An item may optionally have a description
+* An item may only belong to one list at a atime
+* An item may optionally have a due date
+* An item can be marked completed
+* A completed item should be denoted with a strike-through, a lighter color and a checked box
+* A completed item may be un-completed

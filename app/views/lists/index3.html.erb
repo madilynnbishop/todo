@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<div id="myDIV" class="header"><h1>All your to-dos</h1>
+</div>
+<br>
+<br>
+<p>You have <%= List.all.size %> lists total. </p>
+<p>You have <%= Task.all.size %> tasks total. Let's conquer them! Select a list to get started and view your tasks </p>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Completed</th>
+        <th>Tasks in List</th>
+        <th colspan="8"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @lists.each do |list| %>
+        <tr>
+          <td><%= list.title %></td>
+          <td><%= list.description %></td>
+          <td><%= list.completed %></td>
+          <td><%= list.tasks.size %></td>
+          <td><%= link_to 'Show My Tasks', list, class: ' btn btn-outline-primary'%></td>
+          <td><%= link_to edit_list_path(list), class: 'btn btn-outline-primary' do %>
+            <i class="fa fa-edit"
+          <% end %>
+      </td>
+          <td>
+            <%= link_to list, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' do %>
+                <i class="fa fa-trash-o"
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+  </table>
+
+
+
+<br>
+
+<%=link_to 'New List', new_list_path, class: 'btn btn-primary' %>

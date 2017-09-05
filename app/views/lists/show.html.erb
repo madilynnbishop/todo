@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Back to All Lists', lists_path, class: 'btn btn-xs btn-outline-primary' %>
+<%= link_to 'Edit List', edit_list_path(@list), class: 'btn btn-xs btn-outline-primary' %>
+
+<br>
+<br>
+<br>
+<div class="header" style="text-align: center; font-weight:bold; font-size:36px"  >  <%= @list.title %> </div>
+
+
+<p>
+  <strong>Description:</strong>
+  <%= @list.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @list.completed %>
+</p>
+  <br>
+  <br>
+
+<div class="task_wrapper">
+  <%= render @list.tasks %>
+</div>
+<br>
+
+<%= link_to 'Add New Task', new_list_task_path(@list), class: 'btn btn-primary' %>

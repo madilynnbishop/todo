@@ -1,0 +1,25 @@
+<p> Title: <%= task.title %></p>
+<p> Content:<%= task.content %></p>
+<p> Status: <%= task.completed %></p>
+<p> Due Date: <%= task.due_date.to_formatted_s(:long)   %></p>
+<br>
+<div class="btn-group open">
+  <a class="btn btn-primary" href="#"><i class="icon-wrench"></i> Task</a>
+  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+  <span class="icon-caret-down"></span></a>
+<ul class="dropdown-menu">
+<li><a href="#"><i class="icon-fixed-width icon-pencil"></i><%= link_to 'Edit', edit_list_task_path(@list, task.id)%></a></li>
+<li><a href="#"><i class="icon-fixed-width icon-trash"></i><%= link_to 'Remove', list_task_path(@list, task.id), method: :delete, data: { confirm: 'Are you sure?'} %> </a></li>
+</ul>
+</div>
+
+
+
+<p> Title: <%= task.title %></p>
+<p> Content:<%= task.content %></p>
+<p> Status: <%= task.completed %></p>
+<p> Due Date: <%= task.due_date.to_formatted_s(:long)   %></p>
+
+<%= link_to 'Edit', edit_list_task_path(@list, task.id), class: 'btn btn-xs btn-primary'%>
+<%= link_to 'Remove', list_task_path(@list, task.id), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-xs btn-primary' %>
+ <!-- <%=link_to 'New Task', new_list_task_path(@list), class: 'btn btn-primary' %> -->

@@ -1,0 +1,6 @@
+<h1><%= @task.title %></h1>
+<br>
+<%= render partial: 'form', locals: {task: @task} %>
+<hr />
+
+<%= link_to 'Back', @list, class: 'btn btn-xs btn-primary'  %>
